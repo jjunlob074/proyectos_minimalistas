@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 600px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.main__search {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    outline: none;
+}
+
+.main__text {
+    text-align: justify;
+    line-height: 3rem;
+}
+
+.main__coincidence {
+    background-color: #d874b3;
+    font-weight: normal; 
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+    font-style: italic;
+    animation: boldEffect .3s forwards; 
+}
+
+/* Definir la animación */
+@keyframes boldEffect {
+    0% {
+        font-weight: normal;
+    }
+    100% {
+        font-weight: bold;
+    }
+}
