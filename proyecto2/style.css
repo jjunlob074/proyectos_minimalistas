@@ -1,0 +1,164 @@
+/* Reset global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del cuerpo */
+body {
+    font-family:'Courier New', Courier, monospace; /* Fuente moderna */
+    background-color: #222; /* Color de fondo suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+/* Contenedor principal del juego */
+#game-container {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    background-color: #FFFFFF; /* Fondo blanco para separar del fondo */
+    border-radius: 3rem; /* Bordes más suaves */
+    border: 4px solid #000;
+    padding: 2rem; /* Ampliar el padding para mayor espacio interno */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1), 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    overflow: hidden; /* Evitar desbordamiento de bordes redondeados */
+    background: linear-gradient(135deg, #f0f0f0, #ffffff); /* Degradado suave para darle profundidad */
+    transition: box-shadow 0.3s ease; /* Transición para sombra */
+    margin-top: 1rem;
+}
+#max-score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+}
+
+
+/* Información de puntaje, fallos y tiempo */
+#score, #misses, #time {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333; /* Color de texto moderno */
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+#score:hover, #misses:hover, #time:hover {
+    transform: scale(1.1); /* Efecto de hover para interacción */
+}
+.scores {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+#game-area {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    background-image: url('./gameboard.jpg');
+    background-size: 100% 100%;  /* Hace que la imagen ocupe todo el contenedor */
+    background-position: center;  /* Centra la imagen (aunque podría no ser necesario si se estira) */
+    border-radius: 1rem;
+    border: 4px solid black;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    cursor: url('./mira.svg'), auto;
+}
+
+#diana {
+    width: 10vw;
+    height: 10vw;
+    max-width: 80px;
+    max-height: 80px;
+    background-image: url('./diana.png');
+    background-size: 100% 100%;  /* Hace que la imagen ocupe todo el contenedor */
+    background-position: center; /* Color amarillo brillante */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
+
+
+/* Efecto de disparo */
+.shot-effect {
+    position: absolute;
+    width: 4vw;
+    height: 4vw;
+    background-image: url('./bang.png');
+    background-size: 100% 100%;  /* Hace que la imagen ocupe todo el contenedor */
+    background-position: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.5s ease-out;
+}
+
+/* Medias Queries para Responsividad */
+@media (max-width: 768px) {
+    #score, #misses, #time {
+        font-size: 2rem; /* Ajustar el tamaño de la fuente */
+    }
+    #game-container {
+        margin-top: 3rem;
+        width: 100vw; /* Ajustar el padding en pantallas pequeñas */
+    }
+    #game-area {
+        height: 55vh; /* Ajustar el área del juego en pantallas más pequeñas */
+    }
+
+    #diana {
+        width: 10vw;
+        height: 10vh;
+    }
+}
+
+@media (max-width: 480px) {
+    #score, #misses, #time {
+        font-size: 1rem; /* Más pequeño en pantallas pequeñas */
+    }
+    #game-container {
+        margin-top: 3rem;
+        width: 100vw; /* Ajustar el padding en pantallas pequeñas */
+    }
+    #game-area {
+        height: 55vh;
+    }
+
+    #diana {
+        width: 20vw;
+        height: 20vw;
+    }
+}
+
+/* Animación de carga del pato (aparecer con escala y suavizado) */
+@keyframes dianaEntrance {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Aplicar animación de entrada al pato */
+#diana {
+    animation: dianaEntrance 0.6s ease-out forwards;
+}
