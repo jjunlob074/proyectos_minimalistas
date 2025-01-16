@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mignify CSS and JS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Code Minifier</h1>
+        <select id="typeSelector">
+          <option value="css">Minify CSS</option>
+          <option value="js">Minify JavaScript</option>
+        </select>
+        <textarea id="codeInput" placeholder="Enter your CSS or JavaScript here..."></textarea>
+        <button onclick="minifyCode()">Minify</button>
+        <div id="output" class="output" style="display:none;"></div>
+        <div id="error" class="error" style="display:none;"></div>
+      </div>
+    
+    
+</body>
+</html>
