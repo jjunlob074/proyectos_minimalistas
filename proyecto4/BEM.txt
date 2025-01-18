@@ -1,0 +1,58 @@
+
+BEM
+
+La metodología BEM (Block, Element, Modifier) es una convención para escribir código CSS de manera más organizada, escalable y mantenible. BEM establece una estructura de clases que describe el diseño y la funcionalidad de los elementos en una página web. La idea central de BEM es dividir la interfaz en bloques y definir cómo interactúan esos bloques con sus elementos y modificadores.
+
+Aquí te explico cada parte de la metodología de manera técnica:
+
+1. Block (Bloque)
+Un bloque es una parte autónoma y reutilizable de la interfaz de usuario, que puede ser un componente o una sección en la página. Los bloques son elementos con una función independiente.
+
+Ejemplo:
+
+<div class="menu">...</div>
+
+2. Element (Elemento)
+Un elemento es una parte del bloque que no puede existir sin el bloque al que pertenece. Los elementos son componentes que hacen parte del bloque y tienen una función específica dentro de él.
+
+Ejemplo:
+
+<div class="menu">
+  <ul class="menu__list">...</ul>
+</div>
+En este caso, menu__list es un elemento del bloque menu.
+
+3. Modifier (Modificador)
+Un modificador es una variante de un bloque o un elemento que cambia su estilo, comportamiento o estado. Los modificadores son opcionales y se usan para definir variaciones visuales o funcionales.
+
+Ejemplo:
+
+<div class="menu menu--dark">...</div>
+En este caso, menu--dark es un modificador que cambia la apariencia del bloque menu, probablemente aplicando un esquema de colores oscuro.
+
+Convenciones de nomenclatura en BEM
+La forma en que se estructuran las clases en BEM sigue una convención muy específica:
+
+Bloque: block
+Elemento: block__element
+Modificador: block--modifier o block__element--modifier
+
+Ejemplo de estructura BEM en código:
+
+<div class="card card--featured">
+  <h2 class="card__title">Título de la tarjeta</h2>
+  <p class="card__description">Descripción de la tarjeta</p>
+  <button class="card__button card__button--primary">Botón</button>
+</div>
+
+En este ejemplo:
+
+card es el bloque.
+card__title, card__description, y card__button son elementos del bloque card.
+card--featured y card__button--primary son modificadores que modifican el bloque o los elementos.
+Ventajas de usar BEM:
+Modularidad y reutilización: Los bloques son independientes, por lo que puedes reutilizarlos en diferentes partes de la página.
+Escalabilidad: Facilita la expansión del proyecto, ya que cada nuevo componente puede seguir el patrón BEM sin causar conflictos.
+Mantenibilidad: Las clases son explícitas y claras, lo que hace que el código sea fácil de entender y modificar a largo plazo.
+Evita la contaminación de los estilos: Al usar nombres de clase específicos y no globales, se minimiza el riesgo de que los estilos de un componente interfieran con otros.
+En resumen, BEM es una metodología útil para organizar tu CSS de forma eficiente, modular y fácil de mantener, especialmente en proyectos grandes y equipos de desarrollo.

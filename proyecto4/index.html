@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="body">
+    <div class="container">
+        <h1 class="container__title">Calculadora de IMC</h1>
+
+        <div class="input-group">
+            <label for="peso" class="input-group__label">Peso (kg):</label>
+            <input type="number" id="peso" class="input-group__input" placeholder="Ingresa tu peso" min="30" max="300" />
+        </div>
+        
+        <div class="input-group">
+            <label for="altura" class="input-group__label">Altura (m):</label>
+            <input type="number" id="altura" class="input-group__input" placeholder="Ingresa tu altura" step="0.01" min="0.5" max="3.0" />
+        </div>
+        
+        <div class="input-group">
+            <label for="edad" class="input-group__label">Edad (años):</label>
+            <input type="number" id="edad" class="input-group__input" placeholder="Ingresa tu edad" min="0" max="120" />
+        </div>
+        
+        <div class="input-group">
+            <label for="genero" class="input-group__label">Género:</label>
+            <select id="genero" class="input-group__select">
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="actividad" class="input-group__label">Nivel de actividad:</label>
+            <select id="actividad" class="input-group__select">
+                <option value="sedentario">Sedentario</option>
+                <option value="ligero">Ligero (Ejercicio 1-3 días/semana)</option>
+                <option value="moderado">Moderado (Ejercicio 3-5 días/semana)</option>
+                <option value="intenso">Intenso (Ejercicio 6-7 días/semana)</option>
+            </select>
+        </div>
+
+        <button class="button" onclick="calcularIMC()">Calcular IMC</button>
+        
+        <!-- Resultado IMC y recomendaciones -->
+        <div id="resultado" class="result" style="display: none;">
+            <h3 class="result__title">Tu IMC es: <span id="imcResultado">0</span></h3>
+            <p id="clasificacion" class="result__paragraph"></p>
+            <p id="recomendaciones" class="result__paragraph"></p>
+            <p id="tdee" class="result__paragraph"></p>
+        </div>
+
+        <!-- Tabla con los rangos de IMC -->
+        <table id="tablaIMC" class="table--imc">
+            <thead>
+                <tr class="table--imc__row">
+                    <th class="table--imc__header">Rango de IMC</th>
+                    <th class="table--imc__header">Categoría</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table--imc__row">
+                    <td class="table--imc__cell">Menor a 18.5</td>
+                    <td class="table--imc__cell">Bajo peso</td>
+                </tr>
+                <tr class="table--imc__row">
+                    <td class="table--imc__cell">18.5 - 24.9</td>
+                    <td class="table--imc__cell">Peso normal</td>
+                </tr>
+                <tr class="table--imc__row">
+                    <td class="table--imc__cell">25 - 29.9</td>
+                    <td class="table--imc__cell">Sobrepeso</td>
+                </tr>
+                <tr class="table--imc__row">
+                    <td class="table--imc__cell">30 o más</td>
+                    <td class="table--imc__cell">Obesidad</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

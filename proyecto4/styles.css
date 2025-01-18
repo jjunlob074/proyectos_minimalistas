@@ -1,0 +1,164 @@
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Bloque principal del cuerpo */
+.body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #6e7f7e, #b6c2b6);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Bloque para el contenedor */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Encabezado */
+.container__title {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Bloque para los inputs y selects */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Elemento de label */
+.input-group__label {
+    font-size: 16px;
+    color: #4b6a4e;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Elementos de input y select */
+.input-group__input, .input-group__select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+/* Modificador cuando el input o select está enfocado */
+.input-group__input:focus, .input-group__select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    background-color: #ffffff;
+}
+
+/* Botón */
+.button {
+    width: 100%;
+    padding: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Modificador para el hover del botón */
+.button:hover {
+    background-color: #45a049;
+}
+
+/* Resultado */
+.result {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    text-align: center;
+}
+
+.result__title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.result__paragraph {
+    margin: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Tabla de IMC */
+.table--imc {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table--imc__header, .table--imc__cell {
+    padding: 12px;
+    border-bottom: 2px solid #f2f2f2;
+}
+
+.table--imc__header {
+    background-color: #51b6e5;
+    color: white;
+    font-size: 18px;
+}
+
+.table--imc__row {
+    background-color: #f9f9f9;
+}
+
+/* Modificador para la fila seleccionada */
+.table--imc__rowselected{
+    background-color: #aaecf5;
+}
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .container__title {
+        font-size: 24px;
+    }
+
+    .input-group__input, .input-group__select {
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 16px;
+    }
+
+    .result__title {
+        font-size: 20px;
+    }
+}
