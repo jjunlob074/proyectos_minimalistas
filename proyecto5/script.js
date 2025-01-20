@@ -161,7 +161,7 @@ function levelUp() {
 }
 
 function generateCompleteMaze() {
-    let stepsPerFrame = 10;
+    let stepsPerFrame = 30;
     
     function step() {
       for (let i = 0; i < stepsPerFrame; i++) {
