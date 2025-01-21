@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalizador de Tipografías</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Personalizador de Tipografías</h1>
+    
+    <div class="controls">
+      <label for="font-size">Tamaño de fuente:</label>
+      <div class="input-group">
+        <input type="range" id="font-size" min="10" max="100" value="16">
+        <span id="font-size-value">16</span>px
+      </div>
+      
+      <label for="font-weight">Peso de fuente:</label>
+      <div class="input-group">
+        <select id="font-weight">
+          <option value="100">Thin</option>
+          <option value="400" selected>Normal</option>
+          <option value="700">Bold</option>
+        </select>
+        <span id="font-weight-value">Normal</span>
+      </div>
+      
+      <label for="letter-spacing">Espaciado entre letras:</label>
+      <div class="input-group">
+        <input type="range" id="letter-spacing" min="0" max="10" step="0.1" value="0">
+        <span id="letter-spacing-value">0</span>px
+      </div>
+      
+      <label for="line-height">Altura de línea:</label>
+      <div class="input-group">
+        <input type="range" id="line-height" min="1" max="3" step="0.1" value="1.5">
+        <span id="line-height-value">1.5</span>
+      </div>
+      
+      <label for="font-family">Tipografía:</label>
+      <select id="font-family">
+        <!-- Las fuentes dinámicas se cargarán aquí -->
+      </select>
+    </div>
+    
+    <div class="preview">
+      <p id="preview-text">
+        Según Platón, los egipcios describían la Atlántida como una isla escarpada, a excepción de una gran llanura de forma oblonga, 
+        situada en la parte meridional, que se extendía en una dirección tres mil estadios 
+        [unos 555 km], pero que en su parte central, hacia el interior, tenía dos mil estadios [unos 370 km].
+      </p>
+    </div>
+    
+    <button id="download-css">Descargar CSS</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
