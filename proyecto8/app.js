@@ -1,0 +1,110 @@
+const quotes = [
+    { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+    { quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill" },
+    { quote: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+    { quote: "Do not wait to strike till the iron is hot, but make it hot by striking.", author: "William Butler Yeats" },
+    { quote: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+    { quote: "Our lives begin to end the day we become silent about things that matter.", author: "Martin Luther King Jr." },
+    { quote: "You must be the change you wish to see in the world.", author: "Mahatma Gandhi" },
+    { quote: "It always seems impossible until it's done.", author: "Nelson Mandela" },
+    { quote: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+    { quote: "Hardships often prepare ordinary people for an extraordinary destiny.", author: "C.S. Lewis" },
+    { quote: "Act as if what you do makes a difference.", author: "William James" },
+    { quote: "Success usually comes to those who are too busy to be looking for it.", author: "Henry David Thoreau" },
+    { quote: "Opportunities don't happen. You create them.", author: "Chris Grosser" },
+    { quote: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+    { quote: "Don’t watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+    { quote: "Everything you can imagine is real.", author: "Pablo Picasso" },
+    { quote: "You are never too old to set another goal or to dream a new dream.", author: "C.S. Lewis" },
+    { quote: "If you can dream it, you can do it.", author: "Walt Disney" },
+    { quote: "The best way to predict the future is to create it.", author: "Abraham Lincoln" },
+    { quote: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs" },
+    { quote: "The purpose of life is not to be happy. It is to be useful, to be honorable, to be compassionate, to have it make some difference that you have lived and lived well.", author: "Ralph Waldo Emerson" },
+    { quote: "What lies behind us and what lies before us are tiny matters compared to what lies within us.", author: "Ralph Waldo Emerson" },
+    { quote: "The best revenge is massive success.", author: "Frank Sinatra" },
+    { quote: "You miss 100% of the shots you don’t take.", author: "Wayne Gretzky" },
+    { quote: "Dream big and dare to fail.", author: "Norman Vaughan" },
+    { quote: "Nothing is impossible, the word itself says ‘I’m possible!’", author: "Audrey Hepburn" },
+    { quote: "To live a creative life, we must lose our fear of being wrong.", author: "Joseph Chilton Pearce" },
+    { quote: "In order to succeed, we must first believe that we can.", author: "Nikos Kazantzakis" },
+    { quote: "Life isn’t about finding yourself. It’s about creating yourself.", author: "George Bernard Shaw" },
+    { quote: "What we think, we become.", author: "Buddha" },
+    { quote: "Happiness is not something ready made. It comes from your own actions.", author: "Dalai Lama" },
+    { quote: "There are no shortcuts to any place worth going.", author: "Beverly Sills" },
+    { quote: "You only live once, but if you do it right, once is enough.", author: "Mae West" },
+    { quote: "It’s not whether you get knocked down, it’s whether you get up.", author: "Vince Lombardi" },
+    { quote: "We can do anything we want to if we stick to it long enough.", author: "Helen Keller" },
+    { quote: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt" },
+    { quote: "The road to success and the road to failure are almost exactly the same.", author: "Colin R. Davis" },
+    { quote: "Just do it.", author: "Nike" },
+    { quote: "It always seems impossible until it’s done.", author: "Nelson Mandela" },
+    { quote: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+    { quote: "If you want to achieve greatness stop asking for permission.", author: "Anonymous" },
+    { quote: "The secret of getting ahead is getting started.", author: "Mark Twain" },
+    { quote: "I find that the harder I work, the more luck I seem to have.", author: "Thomas Jefferson" },
+    { quote: "Don’t wish it were easier. Wish you were better.", author: "Jim Rohn" },
+    { quote: "It is never too late to be what you might have been.", author: "George Eliot" },
+    { quote: "Everything you’ve ever wanted is on the other side of fear.", author: "George Addair" },
+    { quote: "You can either experience the pain of discipline or the pain of regret.", author: "Jim Rohn" },
+    { quote: "Good things come to those who hustle.", author: "Anais Nin" },
+    { quote: "There are no traffic jams along the extra mile.", author: "Roger Staubach" },
+    { quote: "Don’t count the days. Make the days count.", author: "Muhammad Ali" },
+    { quote: "Success is not how high you have climbed, but how you make a positive difference to the world.", author: "Roy T. Bennett" },
+    { quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.", author: "Nelson Mandela" },
+    { quote: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+    { quote: "If you’re going through hell, keep going.", author: "Winston Churchill" },
+    { quote: "The best way to predict your future is to create it.", author: "Abraham Lincoln" },
+    { quote: "You are never too old to set another goal or to dream a new dream.", author: "C.S. Lewis" },
+    { quote: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+    { quote: "Life is 10% what happens to us and 90% how we react to it.", author: "Charles R. Swindoll" },
+    { quote: "Keep your face always toward the sunshine—and shadows will fall behind you.", author: "Walt Whitman" },
+    { quote: "You only live once, but if you do it right, once is enough.", author: "Mae West" },
+    { quote: "In three words I can sum up everything I've learned about life: it goes on.", author: "Robert Frost" },
+    { quote: "Life isn’t about finding yourself. It’s about creating yourself.", author: "George Bernard Shaw" },
+    { quote: "To live is the rarest thing in the world. Most people exist, that is all.", author: "Oscar Wilde" },
+    { quote: "Doubt kills more dreams than failure ever will.", author: "Suzy Kassem" },
+    { quote: "The journey of a thousand miles begins with one step.", author: "Lao Tzu" },
+    { quote: "Everything you can imagine is real.", author: "Pablo Picasso" },
+    { quote: "Success doesn’t just find you. You have to go out and get it.", author: "Anonymous" },
+    { quote: "If you are not willing to risk the usual, you will have to settle for the ordinary.", author: "Jim Rohn" },
+    { quote: "Do not wait to strike till the iron is hot, but make it hot by striking.", author: "William Butler Yeats" },
+    { quote: "Opportunities are usually disguised as hard work, so most people don’t recognize them.", author: "Ann Landers" },
+    { quote: "Don’t be pushed around by the fears in your mind. Be led by the dreams in your heart.", author: "Roy T. Bennett" },
+    { quote: "Everything you’ve ever wanted is on the other side of fear.", author: "George Addair" },
+    { quote: "Success is the sum of small efforts, repeated day in and day out.", author: "Robert Collier" },
+    { quote: "Your limitation—it’s only your imagination.", author: "Anonymous" },
+    { quote: "Push yourself, because no one else is going to do it for you.", author: "Anonymous" },
+    { quote: "Sometimes later becomes never. Do it now.", author: "Anonymous" },
+    { quote: "Great things never come from comfort zones.", author: "Anonymous" },
+    { quote: "Dream it. Wish it. Do it.", author: "Anonymous" },
+    { quote: "Success doesn’t just find you. You have to go out and get it.", author: "Anonymous" },
+    { quote: "The harder you work for something, the greater you’ll feel when you achieve it.", author: "Anonymous" },
+    { quote: "Dream it. Believe it. Build it.", author: "Anonymous" },
+    { quote: "Don’t stop when you’re tired. Stop when you’re done.", author: "Anonymous" },
+    { quote: "Wake up with determination. Go to bed with satisfaction.", author: "Anonymous" },
+    { quote: "Little things make big days.", author: "Anonymous" },
+    { quote: "It’s going to be hard, but hard does not mean impossible.", author: "Anonymous" },
+    { quote: "Don’t wait for opportunity. Create it.", author: "Anonymous" },
+    { quote: "Sometimes we’re tested not to show our weaknesses, but to discover our strengths.", author: "Anonymous" },
+    { quote: "The key to success is to focus on goals, not obstacles.", author: "Anonymous" },
+    { quote: "Dream it. Wish it. Do it.", author: "Anonymous" },
+    { quote: "Success is what happens after you have survived all your mistakes.", author: "Anonymous" }
+];
+
+async function fetchQuote() {
+    document.getElementById('loader').style.display = 'block';
+
+    setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const randomQuote = quotes[randomIndex];
+        console.log(randomQuote);
+        document.getElementById('quote').textContent = `"${randomQuote.quote}"`;
+        document.getElementById('author').textContent = `${randomQuote.author}`;
+
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('quote').style.visibility = 'visible';
+        document.getElementById('author').style.visibility = 'visible';
+    }, 2000); // Espera 2 segundos antes de mostrar la cita
+}
+
+window.onload = fetchQuote;
