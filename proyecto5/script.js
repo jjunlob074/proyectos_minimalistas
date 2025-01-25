@@ -108,32 +108,23 @@ function drawMaze() {
   }
 
   // Dibujar al jugador
-const playerX = player.col * cellSize;
-const playerY = player.row * cellSize;
-const radius = 10;
-ctx.fillStyle = 'blue';
-ctx.beginPath();
-ctx.moveTo(playerX + radius, playerY);
-ctx.arcTo(playerX + cellSize, playerY, playerX + cellSize, playerY + cellSize, radius);
-ctx.arcTo(playerX + cellSize, playerY + cellSize, playerX, playerY + cellSize, radius);
-ctx.arcTo(playerX, playerY + cellSize, playerX, playerY, radius);
-ctx.arcTo(playerX, playerY, playerX + cellSize, playerY, radius);
-ctx.closePath();
-ctx.fill();
+  const playerX = player.col * cellSize;
+  const playerY = player.row * cellSize;
+  const radius = 10;
+  ctx.fillStyle = 'blue';
+  ctx.beginPath();
+  ctx.arc(playerX + cellSize / 2, playerY + cellSize / 2, radius, 0, Math.PI * 2);
+  ctx.closePath();
+  ctx.fill();
 
-// Dibujar salida con esquinas redondeadas
-const exitX = (cols - 1) * cellSize;
-const exitY = (rows - 1) * cellSize;
-ctx.fillStyle = 'red';
-ctx.beginPath();
-ctx.moveTo(exitX + radius, exitY);
-ctx.arcTo(exitX + cellSize, exitY, exitX + cellSize, exitY + cellSize, radius);
-ctx.arcTo(exitX + cellSize, exitY + cellSize, exitX, exitY + cellSize, radius);
-ctx.arcTo(exitX, exitY + cellSize, exitX, exitY, radius);
-ctx.arcTo(exitX, exitY, exitX + cellSize, exitY, radius);
-ctx.closePath();
-ctx.fill();
-
+  // Dibujar salida con esquinas redondeadas
+  const exitX = (cols - 1) * cellSize;
+  const exitY = (rows - 1) * cellSize;
+  ctx.fillStyle = 'red';
+  ctx.beginPath();
+  ctx.arc(exitX + cellSize / 2, exitY + cellSize / 2, radius, 0, Math.PI * 2);
+  ctx.closePath();
+  ctx.fill();
 }
 
 function movePlayer(e) {
@@ -161,24 +152,56 @@ function levelUp() {
 }
 
 function generateCompleteMaze() {
-    let stepsPerFrame = 30;
-    
-    function step() {
-      for (let i = 0; i < stepsPerFrame; i++) {
-        generateMaze();
-        if (stack.length === 0) break;
-      }
-      
-      drawMaze();
-  
-      if (stack.length > 0) {
-        requestAnimationFrame(step);
-      }
+  let stepsPerFrame = 30;
+
+  function step() {
+    for (let i = 0; i < stepsPerFrame; i++) {
+      generateMaze();
+      if (stack.length === 0) break;
     }
-  
-    requestAnimationFrame(step);
+
+    drawMaze();
+
+    if (stack.length > 0) {
+      requestAnimationFrame(step);
+    }
   }
-  
+
+  requestAnimationFrame(step);
+}
+
+// Soporte para gestos táctiles
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+
+canvas.addEventListener('touchstart', function (e) {
+  const touch = e.touches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+});
+
+canvas.addEventListener('touchend', function (e) {
+  const dx = touchEndX - touchStartX;
+  const dy = touchEndY - touchStartY;
+
+  if (Math.abs(dx) > Math.abs(dy)) {
+    if (dx > 0) movePlayer({ key: 'ArrowRight' });
+    else movePlayer({ key: 'ArrowLeft' });
+  } else {
+    if (dy > 0) movePlayer({ key: 'ArrowDown' });
+    else movePlayer({ key: 'ArrowUp' });
+  }
+});
+
+canvas.addEventListener('touchmove', function (e) {
+  const touch = e.touches[0];
+  touchEndX = touch.clientX;
+  touchEndY = touch.clientY;
+  e.preventDefault(); // Evitar el desplazamiento de la página
+}, { passive: false });
+
 // Inicializar
 setupGrid();
 generateCompleteMaze();
@@ -186,9 +209,9 @@ generateCompleteMaze();
 // Control de movimiento
 window.addEventListener('keydown', movePlayer);
 
-// Bloquear el desplazamiento al presionar las flechas de arriba y abajo
-window.addEventListener('keydown', function(e) {
-  if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-      e.preventDefault();  // Prevenir el scroll al presionar las flechas
+// Bloquear desplazamiento con teclas de flecha
+window.addEventListener('keydown', function (e) {
+  if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+    e.preventDefault();
   }
 });
