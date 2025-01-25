@@ -185,3 +185,10 @@ generateCompleteMaze();
 
 // Control de movimiento
 window.addEventListener('keydown', movePlayer);
+
+// Bloquear el desplazamiento al presionar las flechas de arriba y abajo
+window.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+      e.preventDefault();  // Prevenir el scroll al presionar las flechas
+  }
+});
