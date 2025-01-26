@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta tu IP y Ubicación</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Consulta tu IP y Ubicación</h1>
+    
+    <input type="text" id="ipInput" placeholder="Ingresa una IP" required />
+    <button onclick="fetchIPDetails()">Consultar IP Personalizada</button>
+    <button onclick="fetchMyIP()">Consultar Mi IP</button>
+
+    <div class="output" id="output"></div>
+    <div id="map"></div>
+  </div>
+</body>
+</html>
+
